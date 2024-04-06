@@ -1,0 +1,52 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.image-content-wrapper {
+  padding: 130px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .image-wrapper {
+    position: relative;
+    margin-right: 100px;
+    img {
+      border-radius: 5px;
+    }
+    .overlay-img {
+      position: absolute;
+      bottom: -40px;
+      right: -50px;
+      border-radius: 5.2px;
+      @include media-breakpoint-down($lg) {
+        width: 150px;
+        height: auto;
+        right: -80px;
+        bottom: -30px;
+      }
+    }
+  }
+  .content-info {
+    @include media-breakpoint-down($lg) {
+      margin-top: 40px;
+    }
+    .content-label {
+      @include typography(16px, 800, 26px, $web-font, $color-primary);
+      margin-bottom: 5px;
+    }
+    h3 {
+      @include typography(40px, 800, 56px, $web-font, $color-dark-blue);
+      margin: 0;
+      @include media-breakpoint-down($xl) {
+        font-size: 32px;
+        line-height: 42px;
+      }
+    }
+    p {
+      @include typography(16px, 500, 26px, $web-font, $color-grey);
+      margin: 40px 0;
+      @include media-breakpoint-down($xl) {
+        margin: 30px 0;
+      }
+    }
+  }
+}

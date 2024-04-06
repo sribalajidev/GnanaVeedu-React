@@ -1,0 +1,120 @@
+@import './variable.scss';
+@import './mixins.scss';
+
+// Fontawesome import
+@import './fontawesome/css/all.css';
+@import './fontawesome/css/v4-shims.css';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+  font-family: $web-font;
+  margin: 0;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  .page-layout-wrapper {
+    @include media-breakpoint-up($lg) {
+      &:not(.home-page) {
+        padding-top: 92px;
+      }
+    }
+    @include media-breakpoint-down($lg) {
+      padding-bottom: 40px;
+    }
+  }
+  // .page-layout-wrapper {
+  //   opacity: 1;
+  //   transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  // }
+  
+  // .page-layout-wrapper.fade-out {
+  //   opacity: 0;
+  // }
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin-left: auto;
+    margin-right: auto;
+    @include media-breakpoint-up($sm) {
+      max-width: 540px; 
+    }
+  
+    @include media-breakpoint-up($md) {
+      max-width: 720px; 
+    }
+  
+    @include media-breakpoint-up($lg) {
+      max-width: 960px; 
+    }
+  
+    @include media-breakpoint-up($xl) {
+      max-width: 1140px; 
+    }
+    @include media-breakpoint-up($xxl) {
+      max-width: 1320px; 
+    }
+  }
+  .mt-15 {
+    margin-top: 15px;
+  }
+  .mt-35 {
+    margin-top: 35px;
+  }
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+    }
+  }
+  .main-wrapper {
+    position: relative;
+  }
+  .btn {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    height: 50px;
+    padding: 0 30px;
+    transition: all 0.5s ease;
+    &.btn-primary {
+      @include typography(18px, 600, 50px, $web-font, $color-primary);
+      border: 1px solid $color-primary;
+      &:hover {
+        color: $color-secondary;
+        border-color: $color-secondary;
+      }
+    }
+    &.btn-secondary {
+      @include typography(18px, 600, 50px, $web-font, $color-primary);
+      background: $color-white;
+      &:hover {
+        color: $color-white;
+        background: $color-secondary;
+      }
+    }
+    @include media-breakpoint-down($lg) {
+      font-size: 16px !important;
+      height: 45px;
+      line-height: 45px !important;
+      padding: 0 20px;
+    }
+  }
+}

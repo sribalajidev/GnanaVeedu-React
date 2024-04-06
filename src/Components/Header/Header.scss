@@ -1,0 +1,129 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.navigation-wrapper {
+  // position: relative;
+  @include media-breakpoint-up($lg) {
+    position: absolute;
+    width: 100%;
+    height: 92px;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    &.header-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: $color-white;
+      animation: headerSticky .95s ease forwards;
+      box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
+      z-index: 99;
+      width: 100%;
+      height: 92px;
+    }
+  }
+  @include media-breakpoint-down($lg) {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: rgb(255 255 255 / 85%);
+    backdrop-filter: blur(2px);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 0 15px 0 rgba(0, 0, 0, .2);
+  }
+  @keyframes headerSticky {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .main-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    @include media-breakpoint-down($lg) {
+      padding: 0 30px !important;
+    }
+    .site-brand-logo {
+      max-width: 100px;
+      @include media-breakpoint-down($lg) {
+        display: none;
+      }
+    }
+    .nav-items {
+      display: flex;
+      gap: 60px;
+      width: 100%;
+      justify-content: flex-end;
+      @include media-breakpoint-down($lg) {
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .nav-link {
+        &.active {
+          a {
+            color: $color-secondary;
+          }
+        }
+        a {
+          @include typography(18px, 600, 1, $web-font, $color-primary);
+          transition: all 0.5s ease;
+          @include media-breakpoint-up($lg) {
+            &:hover {
+              color: $color-secondary;
+            }
+          }
+          @include media-breakpoint-down($lg) {
+            display: flex !important;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 9px;
+            text-align: center;
+            width: 53px;
+            height: 50px;
+            display: block;
+            position: relative;
+            padding-bottom: 8px;
+            margin-top: 8px;
+
+          }
+        }
+        @include media-breakpoint-down($lg) {
+          &.home {
+            a {
+              background: url(../../assets/images/home-icon.png) no-repeat;
+              background-size: 25px 25px;
+              background-position: top center;
+            }
+          }
+          &.about {
+            a {
+              background: url(../../assets/images/about-icon.png) no-repeat;
+              background-size: 25px 25px;
+              background-position: top center;
+            }
+          }
+          &.blog {
+            a {
+              background: url(../../assets/images/blog-icon.png) no-repeat;
+              background-size: 25px 25px;
+              background-position: top center;
+            }
+          }
+          &.contact {
+            a {
+              background: url(../../assets/images/contact-icon.png) no-repeat;
+              background-size: 25px 25px;
+              background-position: top center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

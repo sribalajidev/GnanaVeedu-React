@@ -1,0 +1,70 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.hero-banner-wrapper {
+  position: relative;
+  background: url(../../assets/images/home-banner.jpeg) no-repeat;
+  @include media-breakpoint-down($lg) {
+    background-size: cover;
+  }
+  .hero-banner-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 150px 0 80px;
+    gap: 80px;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: 1fr;
+      padding: 40px 0 40px;
+      gap: 50px;
+    }
+    .hero-inner-content {
+      span {
+        @include typography(16px, 800, 26px, $web-font, $color-primary);
+        margin-bottom: 10px;
+        display: block;
+      }
+      h3 {
+        @include typography(58px, 800, 1.25, $web-font, $color-dark-blue);
+        margin: 0 0 30px;
+        @include media-breakpoint-down($xl) {
+          font-size: 32px;
+        }
+      }
+      p {
+        position: relative;
+        @include typography(20px, 500, 32px, $web-font, $color-grey);
+        margin-bottom: 60px;
+        padding-left: 20px;
+        @include media-breakpoint-down($xl) {
+          font-size: 18px;
+          margin-bottom: 40px;
+        }
+        &::before {
+          position: absolute;
+          content: "";
+          left: 0;
+          width: 2px;
+          height: 73%;
+          background: $color-dark-blue;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .hero-img-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      .img-left {
+        display: flex;
+        gap: 15px;
+        align-items: flex-end;
+      }
+      .img-right {
+        overflow: hidden;
+      }
+    }
+  }
+}

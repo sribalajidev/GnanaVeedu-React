@@ -1,0 +1,126 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.event-list-wrapper {
+  padding: 130px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .content-label {
+    @include typography(16px, 800, 26px, $web-font, $color-primary);
+    margin-bottom: 5px;
+    text-align: center;
+    display: block;    
+  }
+  h3 {
+    @include typography(40px, 800, 56px, $web-font, $color-dark-blue);
+    margin: 0 0 40px;
+    text-align: center;
+    @include media-breakpoint-down($lg) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .event-item-wrapper {
+      display: flex;
+      padding: 20px 40px 20px 20px;
+      background: $color-white;
+      transition: 0.4s;
+      border-radius: 5px;
+      flex-wrap: wrap;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      @include media-breakpoint-down($lg) {
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+      .img-wrapper {
+        position: relative;
+        overflow: hidden;
+        flex-basis: 13%;
+        @include media-breakpoint-down($lg) {
+          flex-basis: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .event-details {
+        flex-basis: 87%;
+        padding-left: 42px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include media-breakpoint-down($lg) {
+          flex-basis: 100%;
+          flex-wrap: wrap;
+          padding: 0;
+          gap: 20px
+        }
+        .content-left {
+          h4 {
+            @include typography(24px, 600, 36px, $web-font, $color-dark-blue);
+            margin-bottom: 15px;
+            @include media-breakpoint-down($xl) {
+              font-size: 18px;
+              line-height: 27px;
+            }
+          }
+          .time-location {
+            margin: 0 -18px;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            @include media-breakpoint-down($xl) {
+              gap: 6px;
+            }
+            & > div {
+              margin: 0 18px;
+              display: flex;
+              align-items: center;
+              font-weight: 500;
+              font-size: 16px;
+              @include typography(16px, 500, 18px, $web-font, $color-grey);
+              padding-left: 20px;
+              position: relative;
+              @include media-breakpoint-down($xl) {
+                font-size: 12px;
+              }
+              i {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+              }
+            }
+          }
+        }
+        .enroll-btn a {
+          border-radius: 5px;
+          display: inline-block;
+          height: 60px;
+          line-height: 60px;
+          background: $color-primary;
+          padding: 0 30px;
+          transition: all 0.5s ease;
+          border: 0 none;
+          @include typography(18px, 700, 60px, $web-font, $color-white);
+          @include media-breakpoint-down($xl) {
+            font-size: 16px;
+            line-height: 50px;
+            height: 50px;
+            padding: 0 20px;
+          }
+          @include media-breakpoint-up($lg) {
+            &:hover {
+              background: $color-secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

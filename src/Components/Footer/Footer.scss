@@ -1,0 +1,110 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.footer-wrapper {
+  position: relative;
+  padding-top: 80px;
+  @include media-breakpoint-down($lg) {
+    display: none;
+  }
+  .footer-top {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    .footer-widget {
+      &:nth-child(2), &:last-child {
+        padding-left: 100px;
+      }
+      img {
+        max-width: 150px;
+      }
+      h3 {
+        @include typography(24px, 700, 36px, $web-font, $color-grey);
+        margin: 0 0 20px;
+      }
+      .footer-link-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .nav-link {
+          position: relative;
+          transition: all 0.75s ease;
+          @include media-breakpoint-up($lg) {
+            &:hover {
+              padding-left: 20px;
+              a {
+                color: $color-primary;
+              }
+              &::before {
+                opacity: 1;
+              }
+            }
+          }
+          &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 50%;
+            width: 8px; 
+            height: 8px; 
+            border-right: 2px solid $color-primary; 
+            border-top: 2px solid $color-primary; 
+            transform: rotate(45deg) translateY(-50%);
+            opacity: 0;
+            transition: all 0.75s ease;
+          }
+          a {
+            @include typography(14px, 500, 14px, $web-font, $color-grey);
+            transition: all 0.75s ease;
+          }
+        }
+      }
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        li {
+          position: relative;
+          padding-left: 20px;
+          cursor: pointer;
+          i {
+            position: absolute;
+            font-family: $icon-font-free;
+            color: $color-grey;
+            font-size: 16px;
+            line-height: 16px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+          }
+          @include media-breakpoint-up($lg) {
+            &:hover {
+              a {
+                color: $color-primary;
+              }
+            }
+          }
+          a {
+            @include typography(14px, 500, 14px, $web-font, $color-grey);
+            transition: all 0.75s ease;
+          }
+        }
+      }
+      p {
+        margin-top: 34px;
+        margin-bottom: 40px;
+        @include typography(16px, 500, 26px, $web-font, $color-grey);
+      }
+    }
+  }
+  .footer-bottom {
+    text-align: center;
+    p {
+      @include typography(14px, 500, 14px, $web-font, $color-grey);
+      margin: 0;
+      padding: 12px 0;
+      border-top: 1px solid $color-grey;
+    }
+  }
+}

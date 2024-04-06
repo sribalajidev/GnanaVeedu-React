@@ -1,0 +1,69 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.contact-info-wrapper {
+  padding: 130px 0 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0 10px;
+  }
+  .contect-header {
+    text-align: center;
+    .content-label {
+      @include typography(16px, 800, 26px, $web-font, $color-primary);
+      margin-bottom: 5px;
+    }
+    h3 {
+      @include typography(40px, 800, 56px, $web-font, $color-dark-blue);
+      margin: 0;
+      @include media-breakpoint-down($xl) {
+        font-size: 32px;
+        line-height: 42px;
+      }
+    }
+  }
+  .contact-info-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 50px 0 100px;
+    column-gap: 30px;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .contact-info-item {
+      box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+      border-radius: 5px;
+      padding: 50px 20px;
+      text-align: center;
+      transition: 0.4s;
+      background: $color-white;
+      .item-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        background: rgba(251, 124, 86, 0.1);
+        color: $color-primary;
+      }
+      h4 {
+        @include typography(20px, 700, 32px, $web-font, $color-dark-blue);
+        margin: 25px 0 15px;
+      }
+      p {
+        @include typography(16px, 500, 26px, $web-font, $color-grey);
+        margin: 0;
+      }
+    }
+  }
+  .map-wrapper {
+    height: 500px;
+    iframe {
+      border: 0;
+    }
+  }
+}

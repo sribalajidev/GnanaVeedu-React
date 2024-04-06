@@ -1,0 +1,83 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.team-area-wrapper {
+  padding: 130px 0;
+  background: url(../../assets/images/about-us-two-team-team.jpg);
+  background-size: cover;
+  text-align: center;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .content-label {
+    @include typography(16px, 800, 26px, $web-font, $color-primary);
+    margin-bottom: 5px;
+  }
+  .section-title {
+    @include typography(40px, 800, 56px, $web-font, $color-dark-blue);
+    margin: 0;
+    @include media-breakpoint-down($xl) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+  .card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    @include media-breakpoint-down($lg) {
+      margin: 0;
+    }
+    .member-item {
+      width: 33.333%;
+      padding: 0 15px;
+      margin-top: 45px;
+      cursor: pointer;
+      @include media-breakpoint-down($lg) {
+        width: 50%;
+      }
+      @include media-breakpoint-down($md) {
+        width: 100%;
+      }
+      .member-img {
+        position: relative;
+        img {
+          width: 100%;
+          border-radius: 185px 185px 5px 5px;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        &::after {
+          background: linear-gradient(180deg, rgba(45, 40, 78, 0) 0.01%, rgba(45, 40, 78, 0) 15.58%, rgba(45, 40, 78, 0.75) 100%);
+          position: absolute;
+          content: "";
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          border-radius: 5px;
+          border-radius: 185px 185px 5px 5px;
+        }
+      }
+      .member-name {
+        margin-top: 25px;
+        @include typography(24px, 700, 36px, $web-font, $color-dark-blue);
+      }
+      @include media-breakpoint-up($lg) {
+        &:hover {
+          .member-img {
+            img {
+              border-radius: 5px;
+            }
+            &::after {
+              border-radius: 5px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

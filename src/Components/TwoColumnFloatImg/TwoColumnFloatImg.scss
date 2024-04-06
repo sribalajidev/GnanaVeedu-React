@@ -1,0 +1,97 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.two-column-float-img-wrapper {
+  padding: 130px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .float-img-wrapper {
+    margin: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-down($lg) {
+      margin: 0;
+      flex-wrap: wrap;
+      display: none;
+    }
+    .shape-img {
+      padding: 15px;
+      @include media-breakpoint-down($xl) {
+        padding: 8px;
+      }
+      img {
+        border-radius: 5px;
+        transition: ease;
+        @include media-breakpoint-down($xl) {
+          transform: none !important;
+        }
+      }
+    }
+    .animate-img, .shape {
+      position: absolute;
+      z-index: -1;
+      @include media-breakpoint-down($xl) {
+        display: none;
+      }
+    }
+    .animate-img {
+      top: 128px;
+      left: 0;
+    }
+    .shape {
+      &.shape-1 {
+        top: 15px;
+        left: 230px;
+        .shape-dot {
+          width: 150px;
+          height: 150px;
+          background: $color-orange;
+          opacity: 0.6;
+          border-radius: 5px;
+        }
+      }
+      &.shape-2 {
+        top: -17px;
+        right: 30px;
+        .shape-dot {
+          width: 100px;
+          height: 100px;
+          background: $color-light-red;
+        }
+      }
+      .shape-dot {
+        display: inline-block;
+        border-radius: 100%;
+      }
+    }
+  }
+  .column-content {
+    margin-top: 30px;
+    @include media-breakpoint-down($lg) {
+      margin-top: 0
+    }
+    .content-label {
+      @include typography(16px, 800, 26px, $web-font, $color-primary);
+      margin-bottom: 5px;
+    }
+    h3 {
+      @include typography(40px, 800, 56px, $web-font, $color-dark-blue);
+      margin: 0;
+      @include media-breakpoint-down($xl) {
+        font-size: 32px;
+        line-height: 42px;
+      }
+    }
+    p {
+      @include typography(16px, 500, 26px, $web-font, $color-grey);
+      margin: 30px 0 0;
+      @include media-breakpoint-down($xl) {
+        margin-top: 20px;
+      }
+    }
+  }
+}

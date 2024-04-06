@@ -1,0 +1,140 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.sidebar-layout-wrapper {
+  padding: 130px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .sidebarl-layout-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    @include media-breakpoint-down($lg) {
+      gap: 30px;
+      margin: 0;
+    }
+    .grid-list-wrapper {
+      width: 66.66666667%;
+      padding: 0 15px;
+      @include media-breakpoint-down($lg) {
+        width: 100%;
+        padding: 0;
+      }
+      .blog-item {
+        &:not(:first-child) {
+          margin-top: 40px;
+          @include media-breakpoint-down($lg) {
+            margin-top: 30px;
+          }
+        }
+        overflow: hidden;
+        position: relative;
+        background: $color-light-grey;
+        border-radius: 5px;
+        .inner {
+          .thumbnail {
+            position: relative;
+            overflow: hidden;
+            img {
+              transition: 0.4s;
+              overflow: hidden;
+              width: 100%;
+            }
+          }
+          .content {
+            padding: 35px;
+            @include media-breakpoint-down($lg) {
+              padding: 20px;
+            }
+            .blog-meta {
+              display: flex;
+              flex-wrap: wrap;
+              margin-bottom: 20px;
+              @include media-breakpoint-down($lg) {
+                margin-bottom: 15px;
+              }
+              li {
+                @include typography(16px, 500, 26px, $web-font, $color-grey);
+                i {
+                  padding-right: 8px;
+                  position: relative;
+                }
+              }
+            }
+            h3 {
+              @include typography(32px, 700, 44px, $web-font, $color-dark-blue);
+              margin: 0 0 25px;
+              transition: 0.4s;
+              @include media-breakpoint-down($xl) {
+                font-size: 24px;
+                line-height: 30px;
+                margin-bottom: 10px;
+              }
+            }
+            p {
+              @include typography(16px, 500, 26px, $web-font, $color-grey);
+            }
+          }
+        }
+        @include media-breakpoint-up($lg) {
+          &:hover {
+            .thumbnail {
+              img {
+                transform: scale(1.1);
+              }
+            }
+            .content {
+              h3 {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+    .sidebar-content {
+      padding: 0 15px;
+      width: 33.33333333%;
+      @include media-breakpoint-down($lg) {
+        width: 100%;
+      }
+      .sidebar-widget {
+        border-radius: 5px;
+        padding: 30px;
+        background: $color-light-grey;
+        &:not(:first-child) {
+          margin-top: 40px;
+          @include media-breakpoint-down($lg) {
+            margin-top: 20px;
+          }
+        }
+        h5 {
+          padding-bottom: 20px;
+          margin: 0 0 28px;
+          @include typography(24px, 700, 36px, $web-font, $color-dark-blue);
+          border-bottom: 1px solid rgba(45, 40, 78, 0.07);
+          @include media-breakpoint-down($xl) {
+            font-size: 18px;
+          }
+        }
+        .content {
+          text-align: center;
+          img {
+            border-radius: 100%;
+          }
+          h6 {
+            margin: 20px 0 15px;
+            @include typography(20px, 700, 32px, $web-font, $color-dark-blue);
+          }
+          p {
+            @include typography(16px, 500, 26px, $web-font, $color-grey);
+          }
+          iframe {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
